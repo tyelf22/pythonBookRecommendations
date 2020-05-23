@@ -1,8 +1,12 @@
-""" Tyson Elfors
+''' Tyson Elfors
 5/21/20
 CS-1410
-Project 2 
-"""
+Project 2 - Book Reccomendations
+'''
+
+"""I declare that the following source code was written solely by me.
+I understand that copying any source code, in whole or in part, constitues cheating,
+and that I will receive a zero on this project if I am found in violation of this policy."""
 
 #module variables  
 bookArr = []
@@ -27,8 +31,8 @@ removeSpacesDict = dict((k.lower(), list(filter(None, v))) for k,v in listOfStrs
 listIntDict = dict((k, [int(s) for s in v]) for k,v in removeSpacesDict.items())
 readerObj = listIntDict
 
-#How to calculate the dot product
 def addDotProd(arr1, arr2):
+    '''Calculate the dot product given two arrays'''
     resList = []
     total = 0
     for i in range(0, len(arr1)):
@@ -37,8 +41,9 @@ def addDotProd(arr1, arr2):
         total += i
     return total  
 
-#Recommend books based on two best friends
+
 def recommend(friendList, person):
+    '''Produce the reccomended books given each friend'''
     print(f"{person}'s best friends : ", friendList) #print the two best friends
     
     pers = person
@@ -77,9 +82,10 @@ def recommend(friendList, person):
         listOfBooks.append(bookArr[i])
     print(f"Recommended books for {person} : ", listOfBooks) #print the recommended books
 
-#Create a list of the two best friends
+
 def friends(arrOfDotProds, person):
-    listOfReaderObj = list(readerObj.keys())
+    '''Calculates the two best friends of a person'''
+    listOfReaderObj = list(readerObj.keys()) #Create a list of the two best friends
 
     result = list(zip(arrOfDotProds, listOfReaderObj))
     newRes = list(filter(lambda x: x[1] != person, result))
@@ -96,6 +102,7 @@ def friends(arrOfDotProds, person):
     
 #initialize person to find dot prod
 def dotProd(person):
+    '''Calculate the dot products of each person of a given person'''
     initialValue = readerObj.get(person)
 
     dotProds = []
